@@ -22,5 +22,7 @@ public class Account {
         balance += newDeposit;
     }
 
+    public void withdrawal(int newWithd)
+
 
 }

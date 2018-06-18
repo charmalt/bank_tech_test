@@ -41,5 +41,13 @@ public class AccountTest {
 
     }
 
+    @Test
+    public void setNewBalanceOnWithdrawal(){
+
+        Account account = new Account();
+        account.withdrawal(100);
+        assertEquals(account.getBalance(), 0);
+    }
+
 
 }
