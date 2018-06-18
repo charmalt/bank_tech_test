@@ -7,4 +7,9 @@ public class Deposits {
     public ArrayList<Integer> getHistory() {
         return history;
     }
+
+    public void addDeposit(int newDeposit){
+        getHistory().add(newDeposit);
+    }
+
 }
