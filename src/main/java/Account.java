@@ -22,7 +22,9 @@ public class Account {
         balance += newDeposit;
     }
 
-    public void withdrawal(int newWithd)
+    public void withdrawal(int newWithdrawal){
+        balance -= newWithdrawal;
+    }
 
 
 }

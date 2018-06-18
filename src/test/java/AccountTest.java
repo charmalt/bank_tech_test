@@ -45,6 +45,7 @@ public class AccountTest {
     public void setNewBalanceOnWithdrawal(){
 
         Account account = new Account();
+        account.deposit(100);
         account.withdrawal(100);
         assertEquals(account.getBalance(), 0);
     }
