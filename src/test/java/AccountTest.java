@@ -50,5 +50,12 @@ public class AccountTest {
         assertEquals(account.getBalance(), 0);
     }
 
+    @Test
+    public void saveNewTransaction(){
+        Account account = new Account();
+        account.deposit(100);
+
+
+    }
 
 }
