@@ -14,7 +14,13 @@ public class Account {
         balance = newBalance;
     }
 
-    public ArrayList<Integer> getTranscations() {
+    public ArrayList<Integer> getTransactions() {
         return transcations;
     }
+
+    public void deposit(int newDeposit){
+        balance += newDeposit;
+    }
+
+
 }

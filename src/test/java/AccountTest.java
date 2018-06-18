@@ -25,10 +25,19 @@ public class AccountTest {
     }
 
     @Test
-    public void transcationHistoryInitializedToEmpty(){
+    public void transactionHistoryInitializedToEmpty(){
 
         Account account = new Account();
-        assertThat(account.getTranscations(), IsEmptyCollection.empty());
+        assertThat(account.getTransactions(), IsEmptyCollection.empty());
+
+    }
+
+    @Test
+    public void setNewBalanceOnDeposit(){
+
+        Account account = new Account();
+        account.deposit(100);
+        assertEquals(account.getBalance(), 100);
 
     }
 
