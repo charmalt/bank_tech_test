@@ -13,5 +13,14 @@ public class AccountTest {
 
     }
 
+    @Test
+    public void setAccountBalance(){
+
+        Account account = new Account();
+        account.setBalance(100);
+
+        assertEquals(account.getBalance(), 100);
+    }
+
 
 }
