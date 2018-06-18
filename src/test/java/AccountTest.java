@@ -1,6 +1,8 @@
+import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AccountTest {
 
@@ -20,6 +22,14 @@ public class AccountTest {
         account.setBalance(100);
 
         assertEquals(account.getBalance(), 100);
+    }
+
+    @Test
+    public void transcationHistoryInitializedToEmpty(){
+
+        Account account = new Account();
+        assertThat(account.getTranscations(), IsEmptyCollection.empty());
+
     }
 
 
