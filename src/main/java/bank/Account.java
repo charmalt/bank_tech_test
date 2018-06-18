@@ -2,31 +2,36 @@ package bank;
 
 import java.util.ArrayList;
 
-public class Account {
+class Account {
 
-    public int balance = 0;
+    private int balance = 0;
+
     private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
 
-    public int getBalance() {
+    int getBalance() {
         return balance;
     }
 
-    public void setBalance(int newBalance){
+    void setBalance(int newBalance){
         balance = newBalance;
     }
 
-    public ArrayList<Transaction> getTransactions() {
+    ArrayList<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void deposit(int newDeposit){
+    void deposit(int newDeposit, String date){
         balance += newDeposit;
-
+        transactions.add(makeTransaction(date, newDeposit, 0, balance));
     }
 
-    public void withdrawal(int newWithdrawal){
+    void withdrawal(int newWithdrawal){
         balance -= newWithdrawal;
+    }
+
+    private Transaction makeTransaction(String date, int newDeposit, int newWithdrawal, int balance){
+        return new Transaction(date, newDeposit, 0, balance);
     }
 
 

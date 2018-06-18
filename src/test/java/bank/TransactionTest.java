@@ -1,13 +1,9 @@
 package bank;
 
-import bank.Transaction;
 import org.junit.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 
 public class TransactionTest {
 
