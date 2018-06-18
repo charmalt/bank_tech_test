@@ -9,7 +9,9 @@ public class AccountTest {
 
         Account account = new Account();
 
-        assertEquals(account.balance, 0);
+        assertEquals(account.getBalance(), 0);
 
     }
+
+
 }
