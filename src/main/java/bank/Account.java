@@ -8,7 +8,6 @@ class Account {
 
     private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
-
     int getBalance() {
         return balance;
     }
@@ -26,8 +25,9 @@ class Account {
         transactions.add(makeTransaction(date, newDeposit, 0, balance));
     }
 
-    void withdrawal(int newWithdrawal){
+    void withdrawal(int newWithdrawal, String date){
         balance -= newWithdrawal;
+        transactions.add(makeTransaction(date, 0, newWithdrawal, balance));
     }
 
     private Transaction makeTransaction(String date, int newDeposit, int newWithdrawal, int balance){

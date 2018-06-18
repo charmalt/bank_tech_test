@@ -51,7 +51,7 @@ class AccountTest {
     void setNewBalanceOnWithdrawal(){
 
         account.deposit(100, "12/01/2018");
-        account.withdrawal(100);
+        account.withdrawal(100, "13/01/2018");
 
         assertEquals(account.getBalance(), 0);
     }
