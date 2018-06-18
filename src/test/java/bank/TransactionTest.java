@@ -1,3 +1,6 @@
+package bank;
+
+import bank.Transaction;
 import org.junit.Test;
 
 

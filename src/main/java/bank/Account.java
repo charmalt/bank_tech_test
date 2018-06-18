@@ -1,9 +1,11 @@
+package bank;
+
 import java.util.ArrayList;
 
 public class Account {
 
     public int balance = 0;
-    private ArrayList<Integer> transcations = new ArrayList<Integer>();
+    private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
 
     public int getBalance() {
@@ -14,12 +16,13 @@ public class Account {
         balance = newBalance;
     }
 
-    public ArrayList<Integer> getTransactions() {
-        return transcations;
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
     }
 
     public void deposit(int newDeposit){
         balance += newDeposit;
+
     }
 
     public void withdrawal(int newWithdrawal){
