@@ -1,43 +1,46 @@
 package bank;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class TransactionTest {
+class TransactionTest {
+
+    private Transaction transaction;
+
+    @BeforeEach
+    void init(TestInfo testInfo) {
+
+        transaction = new Transaction("24/12/2018", 100, 0, 1000);
+        System.out.println("Start..." + testInfo.getDisplayName());
+    }
 
     @Test
-    public void newTransactionHasDateAttribute(){
-
-        Transaction transaction = new Transaction("24/12/2018", 0, 100, 1000);
+    void newTransactionHasDateAttribute(){
 
         assertEquals(transaction.date, "24/12/2018");
 
     }
 
     @Test
-    public void newTransactionHasDepositAttribute(){
-
-        Transaction transaction = new Transaction("24/12/2018", 0, 100, 1000);
+    void newTransactionHasDepositAttribute(){
 
         assertEquals(transaction.deposit, 0);
 
     }
 
     @Test
-    public void newTransactionHasWithdrawalAttribute(){
-
-        Transaction transaction = new Transaction("24/12/2018", 0, 100, 1000);
+    void newTransactionHasWithdrawalAttribute(){
 
         assertEquals(transaction.withdrawal, 100);
 
     }
 
     @Test
-    public void newTransactionHasBalanceAttribute(){
-
-        Transaction transaction = new Transaction("24/12/2018", 0, 100, 1000);
+    void newTransactionHasBalanceAttribute(){
 
         assertEquals(transaction.balance, 1000);
 
