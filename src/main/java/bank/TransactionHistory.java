@@ -2,15 +2,26 @@ package bank;
 
 import java.util.ArrayList;
 
-public class TransactionHistory {
+class TransactionHistory {
 
-    private ArrayList<Transaction> transactions;
+    ArrayList<Transaction> transactions;
 
-    public TransactionHistory() {
+    TransactionHistory() {
         this.transactions = new ArrayList<>();
     }
 
-    public ArrayList<Transaction> getTransactions() {
-        return transactions;
+    void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
+    }
+
+    void printStatement(){
+
+        System.out.printf("%10s %10s %10s %10s", "Date", "Withdrawal", "Deposit", "Balance");
+        System.out.println();
+        for (Transaction transaction : this.transactions) {
+            System.out.printf("%10s %10d %10d %10d", transaction.date, transaction.withdrawal, transaction.deposit, transaction.balance);
+            System.out.println();
+        }
+
     }
 }
