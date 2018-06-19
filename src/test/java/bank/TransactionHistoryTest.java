@@ -4,20 +4,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class TransactionHistoryTest {
 
-    private TransactionHistoryTest history;
+    private TransactionHistory history;
 
     @BeforeEach
     void setUp() {
-       history = new TransactionHistoryTest();
+        history = new TransactionHistory();
     }
 
     @Test
-    void hasNoTransactionsInitially() {
+    void EmptyListOnInitialize() {
         assertEquals(new ArrayList<Transaction>(), history.getTransactions());
     }
 
