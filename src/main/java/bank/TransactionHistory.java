@@ -27,12 +27,12 @@ class TransactionHistory {
 
             Transaction transaction = transactions1.get(i);
 
-            String formatter = (transaction.withdrawal == 0.0) ? "%10s || %4.2f || || %4.2f" : "%10s || || %4.2f || %4.2f";
+            String formatter = (transaction.getWithdrawal() == 0.0) ? "%10s || %4.2f || || %4.2f" : "%10s || || %4.2f || %4.2f";
 
-            if (transaction.withdrawal == 0) {
-                System.out.printf(formatter, transaction.date, transaction.deposit, transaction.balance);
+            if (transaction.getWithdrawal() == 0) {
+                System.out.printf("%10s || %4.2f || || %4.2f", transaction.getDate(), transaction.getDeposit(), transaction.getBalance());
             } else {
-                System.out.printf(formatter, transaction.date, transaction.withdrawal, transaction.balance);
+                System.out.printf("%10s || || %4.2f || %4.2f", transaction.getDate(), transaction.getWithdrawal(), transaction.getBalance());
             }
 
             System.out.println();

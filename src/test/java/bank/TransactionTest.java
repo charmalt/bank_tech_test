@@ -21,24 +21,24 @@ class TransactionTest {
     @Test
     void newTransactionHasDateAttribute(){
 
-        assertEquals(transaction.date, "24/12/2018");
+        assertEquals(transaction.getDate(), "24/12/2018");
     }
 
     @Test
     void newTransactionHasDepositAttribute(){
 
-        assertEquals(transaction.deposit, 0);
+        assertEquals(transaction.getDeposit(), 0);
     }
 
     @Test
     void newTransactionHasWithdrawalAttribute(){
 
-        assertEquals(transaction.withdrawal, 100);
+        assertEquals(transaction.getWithdrawal(), 100);
     }
 
     @Test
     void newTransactionHasBalanceAttribute(){
 
-        assertEquals(transaction.balance, 1000);
+        assertEquals(transaction.getBalance(), 1000);
     }
 }
