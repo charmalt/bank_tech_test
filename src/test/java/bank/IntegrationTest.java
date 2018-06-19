@@ -19,7 +19,6 @@ class IntegrationTest {
     void init(TestInfo testInfo) {
         TransactionHistory transactionHistory = new TransactionHistory();
         account = new Account(transactionHistory);
-        account.deposit(1000, "12/12/2018");
 
         System.out.println("Start..." + testInfo.getDisplayName());
     }
@@ -27,8 +26,10 @@ class IntegrationTest {
     @Test
     void makeDepositsAndWithdrawals(){
 
+        account.deposit(1000, "12/12/2018");
         account.deposit(300, "12/12/2018");
         account.withdrawal(1000, "12/12/2018");
+        account.print();
 
         assertEquals(account.getBalance(), 300 );
     }
@@ -41,11 +42,12 @@ class IntegrationTest {
         systemOutContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(systemOutContent));
 
-        account.deposit(300, "12/12/2018");
-        account.withdrawal(1000, "12/12/2018");
+        account.deposit(1000, "10/01/2012");
+        account.deposit(2000, "13/01/2012");
+        account.withdrawal(500, "14/01/2012");
         account.print();
 
-        String string = "      Date Withdrawal    Deposit    Balance\n12/12/2018          0       1000       1000\n12/12/2018          0        300       1300\n12/12/2018       1000          0        300\n";
+        String string = "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n10/01/2012 || 1000.00 || || 1000.00\n";
 
         assertEquals(string, systemOutContent.toString());
     }
