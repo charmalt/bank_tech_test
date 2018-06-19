@@ -1,7 +1,6 @@
 package bank;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 class TransactionHistory {
 
