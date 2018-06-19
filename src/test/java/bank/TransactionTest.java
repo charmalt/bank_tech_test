@@ -14,7 +14,7 @@ class TransactionTest {
     @BeforeEach
     void init(TestInfo testInfo) {
 
-        transaction = new Transaction("24/12/2018", 100, 0, 1000);
+        transaction = new Transaction("24/12/2018", 100, 0, 1000.50);
         System.out.println("Start..." + testInfo.getDisplayName());
     }
 
@@ -39,6 +39,6 @@ class TransactionTest {
     @Test
     void newTransactionHasBalanceAttribute(){
 
-        assertEquals(transaction.getBalance(), 1000);
+        assertEquals(transaction.getBalance(), 1000.50);
     }
 }

@@ -2,10 +2,10 @@ package bank;
 
 class Transaction {
 
-    private float deposit, withdrawal, balance;
+    private double deposit, withdrawal, balance;
     private String date;
 
-    Transaction(String date, float withdrawal, float deposit, float balance){
+    Transaction(String date, double withdrawal, double deposit, double balance){
 
         this.date = date;
         this.deposit = deposit;
@@ -13,15 +13,15 @@ class Transaction {
         this.balance = balance;
     }
 
-    float getDeposit() {
+    double getDeposit() {
         return deposit;
     }
 
-    float getWithdrawal() {
+    double getWithdrawal() {
         return withdrawal;
     }
 
-    float getBalance() {
+    double getBalance() {
         return balance;
     }
 
