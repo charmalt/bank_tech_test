@@ -13,7 +13,7 @@ class TransactionHistory {
 
     void addTransaction(Transaction transaction) {
 
-        transactions.add(transaction);
+        transactions.add(0,transaction);
     }
 
     void printStatement(){
@@ -21,19 +21,12 @@ class TransactionHistory {
         System.out.printf("%4s || %6s || %5s || %7s", "date", "credit", "debit", "balance");
         System.out.println();
 
-        ArrayList<Transaction> transactions1 = this.transactions;
-
-        for (int i = transactions1.size() - 1; i >= 0 ; i--) {
-
-            Transaction transaction = transactions1.get(i);
+        for (Transaction transaction : this.transactions) {
 
             String formatter = (transaction.getWithdrawal() == 0.0) ? "%10s || %4.2f || || %4.2f" : "%10s || || %4.2f || %4.2f";
+            double value = (transaction.getWithdrawal() == 0.0) ? transaction.getDeposit() : transaction.getWithdrawal();
 
-            if (transaction.getWithdrawal() == 0) {
-                System.out.printf("%10s || %4.2f || || %4.2f", transaction.getDate(), transaction.getDeposit(), transaction.getBalance());
-            } else {
-                System.out.printf("%10s || || %4.2f || %4.2f", transaction.getDate(), transaction.getWithdrawal(), transaction.getBalance());
-            }
+            System.out.printf(formatter, transaction.getDate(), value, transaction.getBalance());
 
             System.out.println();
         }
