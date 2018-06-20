@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 
@@ -20,8 +21,8 @@ class TransactionHistoryTest {
 
     @BeforeEach
     void init(TestInfo testInfo) {
+        MockitoAnnotations.initMocks(this);
         history = new TransactionHistory();
-        mockTransaction = Mockito.mock(Transaction.class);
         System.out.println("Start..." + testInfo.getDisplayName());
     }
 
