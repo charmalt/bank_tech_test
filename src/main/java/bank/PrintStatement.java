@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 class PrintStatement {
 
+    String statement;
+
     private ArrayList<Transaction> transactions;
 
     PrintStatement(ArrayList<Transaction> transactions){
@@ -11,11 +13,20 @@ class PrintStatement {
     }
 
     void print(){
-        System.out.printf("%4s || %6s || %5s || %7s\n", "date", "credit", "debit", "balance");
+
+        System.out.print(getString());
+
+    }
+
+    private String getString(){
+        statement = String.format("%4s || %6s || %5s || %7s\n", "date", "credit", "debit", "balance");
 
         for (Transaction transaction : this.transactions) {
-            System.out.printf(formatter(transaction), transaction.getDate(), value(transaction), transaction.getBalance());
+            String transactionPrint = String.format(formatter(transaction), transaction.getDate(), value(transaction), transaction.getBalance());
+            statement = statement.concat(transactionPrint);
         }
+
+        return statement;
     }
 
     private String formatter(Transaction transaction){
