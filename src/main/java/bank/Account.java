@@ -3,7 +3,7 @@ package bank;
 class Account {
 
     private int balance = 0;
-    TransactionHistory transactions;
+    private TransactionHistory transactions;
 
     Account(TransactionHistory transactionHistory){
         this.transactions = transactionHistory;

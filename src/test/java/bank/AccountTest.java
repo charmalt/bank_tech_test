@@ -17,18 +17,18 @@ import static org.mockito.Matchers.anyString;
 @RunWith(MockitoJUnitRunner.class)
 class AccountTest {
 
-    @Spy
-    private Account account;
-
     @Mock
     TransactionHistory transactionHistory = new TransactionHistory();
 
+    @Spy
+    private Account account = new Account(transactionHistory);
+
     @Mock
-    private Transaction mockTransaction = Mockito.mock(Transaction.class);
+    private Transaction mockTransaction;
 
     @BeforeEach
     void init(TestInfo testInfo) {
-        account = Mockito.spy(new Account(transactionHistory));
+        MockitoAnnotations.initMocks(this);
 
         Mockito.doReturn(mockTransaction).when(account).makeTransaction( anyString(), anyInt(),
                 anyInt(), anyInt());
@@ -41,12 +41,6 @@ class AccountTest {
     void newAccountHasDefaultZeroBalance(){
 
         assertEquals(account.getBalance(), 0);
-    }
-
-    @Test
-    void transactionHistoryInitializedToEmpty(){
-
-        assertThat(account.transactions.transactions, IsEmptyCollection.empty());
     }
 
     @Test
@@ -74,11 +68,5 @@ class AccountTest {
 
     }
 
-    @Test
-    void saveNewTransaction(){
-
-        assertEquals(account.transactions, transactionHistory);
-
-    }
 
 }
