@@ -21,9 +21,13 @@ class TransactionHistory {
 
     void printStatement(){
 
-        this.statement = new PrintStatement(transactions);
+        this.statement = makePrintStatement(transactions);
         statement.print();
 
+    }
+
+    PrintStatement makePrintStatement(ArrayList<Transaction> transactions){
+        return new PrintStatement(transactions);
     }
 
 }
