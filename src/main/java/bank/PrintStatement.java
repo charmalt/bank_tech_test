@@ -2,33 +2,27 @@ package bank;
 
 import java.util.ArrayList;
 
-class TransactionHistory {
+class PrintStatement {
 
     ArrayList<Transaction> transactions;
 
-    TransactionHistory() {
-
-        this.transactions = new ArrayList<>();
+    PrintStatement(ArrayList<Transaction> transactions){
+        this.transactions = transactions;
     }
 
-    void addTransaction(Transaction transaction) {
-
-        transactions.add(0,transaction);
-    }
-
-    void printStatement(){
+    void print(){
 
         System.out.printf("%4s || %6s || %5s || %7s\n", "date", "credit", "debit", "balance");
 
         for (Transaction transaction : this.transactions) {
 
-            print(transaction);
+            printTransaction(transaction);
 
         }
 
     }
 
-    private void print(Transaction transaction){
+    private void printTransaction(Transaction transaction){
 
         String formatter = (transaction.getWithdrawal() == 0.0) ? "%10s || %4.2f || || %4.2f\n" : "%10s || || %4.2f || %4.2f\n";
         double value = (transaction.getWithdrawal() == 0.0) ? transaction.getDeposit() : transaction.getWithdrawal();
@@ -36,4 +30,5 @@ class TransactionHistory {
         System.out.printf(formatter, transaction.getDate(), value, transaction.getBalance());
 
     }
+
 }
